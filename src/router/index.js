@@ -1,19 +1,92 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'modulos',
+    component: () => import(/* webpackChunkName: "modulos" */ '../views/ModulosView.vue'),
+    meta: { showHeaderVoltar: false }
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/demandas',
+    component: () => import(/* webpackChunkName: "demandas-layout" */ '../views/DemandasLayout.vue'),
+    meta: { showHeaderVoltar: true },
+    redirect: '/demandas/minhas',
+    children: [
+      {
+        path: 'minhas',
+        name: 'demandas-lista',
+        component: () => import(/* webpackChunkName: "demandas" */ '../views/demandas/ListaDemandasView.vue')
+      },
+      {
+        path: 'nova',
+        name: 'demanda-nova',
+        component: () => import(/* webpackChunkName: "demandas" */ '../views/demandas/FormDemandaView.vue')
+      },
+      {
+        path: 'editar/:id',
+        name: 'demanda-editar',
+        component: () => import(/* webpackChunkName: "demandas" */ '../views/demandas/FormDemandaView.vue')
+      },
+      {
+        path: 'deliberacao',
+        name: 'demandas-deliberacao',
+        component: () => import(/* webpackChunkName: "demandas" */ '../views/demandas/DeliberacaoView.vue')
+      }
+    ]
+  },
+  {
+    path: '/chamados',
+    name: 'chamados',
+    component: () => import(/* webpackChunkName: "chamados" */ '../views/ChamadosView.vue'),
+    meta: { showHeaderVoltar: true }
+  },
+  {
+    path: '/tarefas',
+    component: () => import(/* webpackChunkName: "tarefas-layout" */ '../views/TarefasLayout.vue'),
+    meta: { showHeaderVoltar: true },
+    redirect: '/tarefas/os',
+    children: [
+      {
+        path: 'os',
+        name: 'tarefas-os',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/ListaOSView.vue')
+      },
+      {
+        path: 'os/nova',
+        name: 'os-nova',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue')
+      },
+      {
+        path: 'os/:id',
+        name: 'os-detalhe',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/DetalheOSView.vue'),
+        props: true
+      },
+      {
+        path: 'projetos',
+        name: 'tarefas-projetos',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/ListaProjetosView.vue')
+      },
+      {
+        path: 'projetos/:id',
+        name: 'plano-projeto',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/PlanoProjetoView.vue'),
+        props: true
+      }
+    ]
+  },
+  {
+    path: '/pos-venda',
+    name: 'pos-venda',
+    component: () => import(/* webpackChunkName: "fluxo" */ '../views/FluxoAtendimentoView.vue'),
+    meta: { showHeaderVoltar: true }
+  },
+  {
+    path: '/producao',
+    name: 'producao',
+    component: () => import(/* webpackChunkName: "producao" */ '../views/ProducaoView.vue'),
+    meta: { showHeaderVoltar: true }
   }
 ]
 
