@@ -1,38 +1,25 @@
 <template>
-  <div class="view-lista-demandas">
+  <div>
     <div class="titulo">
       <div class="margem container">
-        <div class="m-icone direita alinha-v" style="gap: 0.5rem;">
-          <button type="button" class="btn-carrinho acao-secundaria" title="Pedido de Estoque" @click="pedidoEstoque">
+        <div class="m-icone direita alinha-v">
+          <button type="button" class="acao-secundaria" title="Pedido de Estoque" @click="pedidoEstoque">
             <i class="bi bi-cart3"></i>
           </button>
-          <button type="button" class="btn-add-demandas acao-secundaria" title="Nova demanda" @click="novaDemanda">
+          <button type="button" class="acao-secundaria" title="Nova demanda" @click="novaDemanda">
             <i class="bi bi-plus-lg"></i>
           </button>
         </div>
         <h2>Minhas Demandas</h2>
       </div>
     </div>
-    <div class="container margem">
-      <div class="filtro-apenas-minhas margem-bottom" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-        <label style="margin-bottom: 0;">
-          Exibir:
-          <select v-model="filtroTipo">
-            <option value="todas">Todas</option>
-            <option value="demandas">Apenas demandas</option>
-            <option value="os">Apenas ordens de serviço</option>
-          </select>
-        </label>
-        <label style="margin-bottom: 0;">
-          Simular usuário:
-          <select v-model="usuarioId" @change="trocarUsuario">
-            <option v-for="u in store.USUARIOS" :key="u.id" :value="u.id">{{ u.nome }} ({{ u.papel }})</option>
-          </select>
-        </label>
-      </div>
+    <div class="margem container">
+      <fieldset class="grid-4 bloco2 margem m-b">
+        <div><label>Exibir</label><select v-model="filtroTipo"><option value="todas">Todas</option><option value="demandas">Apenas demandas</option><option value="os">Apenas ordens de serviço</option></select></div>
+        <div><label>Simular usuário</label><select v-model="usuarioId" @change="trocarUsuario"><option v-for="u in store.USUARIOS" :key="u.id" :value="u.id">{{ u.nome }} ({{ u.papel }})</option></select></div>
+      </fieldset>
       <div class="bloco margem">
-        <div class="tabela-wrapper">
-          <table class="tabela">
+        <table class="tabela">
             <thead>
               <tr>
                 <th>Código</th>
@@ -48,30 +35,26 @@
               <tr
                 v-for="linha in listaUnificada"
                 :key="linha.tipo === 'os' ? 'os-' + linha.osId : linha.id"
-                class="clicavel row-demanda"
-                :class="{ 'row-demanda-os': linha.tipo === 'os' }"
+                class="clicavel"
                 @click="abrirLinha(linha)"
               >
                 <td>{{ linha.codigo }}</td>
                 <td>{{ formatarDataLinha(linha.data) }}</td>
-                <td class="desc">{{ linha.criadoPor || '-' }}</td>
-                <td class="desc">{{ linha.liderOuSetor || '-' }}</td>
-                <td class="desc">{{ linha.origem || '-' }}</td>
+                <td>{{ linha.criadoPor || '-' }}</td>
+                <td>{{ linha.liderOuSetor || '-' }}</td>
+                <td>{{ linha.origem || '-' }}</td>
                 <td>
                   <template v-if="linha.tipo === 'os'">{{ linha.tipoNome || 'Ordem de Serviço' }}</template>
                   <template v-else>
-                    <div v-if="linha.itens && linha.itens.length" class="lista-itens">
-                      <div v-for="(item, idx) in linha.itens.slice(0, 3)" :key="idx" class="item-produto">
-                        <span class="quantidade-badge">{{ formatarQuantidade(item.quantidade) }}</span>
-                        <span class="descricao-produto">{{ item.descricao || item.codigo }}</span>
-                      </div>
+                    <div v-if="linha.itens && linha.itens.length">
+                      <span v-for="(item, idx) in linha.itens.slice(0, 3)" :key="idx"><span class="chip">{{ formatarQuantidade(item.quantidade) }}</span> {{ item.descricao || item.codigo }}</span>
                     </div>
                     <span v-else-if="linha.servicoItens && linha.servicoItens.length">{{ linha.servicoItens.map(s => s.descricao).join(', ') }}</span>
-                    <span v-else class="sem-itens">Nenhum item</span>
+                    <span v-else class="fonte-fraca">Nenhum item</span>
                   </template>
                 </td>
                 <td>
-                  <span class="chip status-chip" :class="getStatusClasse(linha.status)">{{ linha.status || 'Em análise' }}</span>
+                  <span class="chip" :class="getStatusClasse(linha.status)">{{ linha.status || 'Em análise' }}</span>
                 </td>
               </tr>
               <tr v-if="listaUnificada.length === 0">
@@ -79,7 +62,6 @@
               </tr>
             </tbody>
           </table>
-        </div>
       </div>
     </div>
   </div>
@@ -157,7 +139,7 @@ function formatarDataLinha(data) {
 
 function abrirLinha(linha) {
   if (linha.tipo === 'os') {
-    router.push({ name: 'os-detalhe', params: { id: linha.osId } })
+    router.push({ name: 'os-editar', params: { id: linha.osId } })
   } else {
     router.push({ name: 'demanda-editar', params: { id: linha.id } })
   }

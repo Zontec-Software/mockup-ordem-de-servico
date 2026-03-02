@@ -25,16 +25,16 @@ export function formatarQuantidade (v) {
 
 export function getStatusClasse (s) {
   const m = {
-    'Em Separação': 'status-separacao',
-    'Requisição Criada': 'status-separacao',
-    'Entregue': 'status-concluida',
-    'Em análise': 'status-analise',
-    'Cancelado': 'status-reprovada',
-    'Rascunho': 'status-analise',
-    'Em atendimento': 'status-separacao',
-    'Concluída': 'status-concluida',
-    'A iniciar': 'status-analise',
-    'Em andamento': 'status-separacao'
+    'Em Separação': 'bg-ok',
+    'Requisição Criada': 'bg-ok',
+    'Entregue': 'bg-sucesso',
+    'Em análise': 'bg-alerta',
+    'Cancelado': 'bg-erro',
+    'Rascunho': 'bg-alerta',
+    'Em atendimento': 'bg-ok',
+    'Concluída': 'bg-sucesso',
+    'A iniciar': 'bg-alerta',
+    'Em andamento': 'bg-ok'
   }
-  return m[s] || 'status-analise'
+  return m[s] || 'bg-alerta'
 }

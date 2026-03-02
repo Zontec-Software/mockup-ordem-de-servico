@@ -15,11 +15,17 @@ const isModulos = computed(() => route.path === '/' || route.name === 'modulos')
 </script>
 
 <style>
-#app {
-  font-family: OpenSans, Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--cor-fonte, #2c3e50);
-  min-height: 100vh;
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
 }
 </style>

@@ -1,42 +1,41 @@
 <template>
-  <div class="fluxo-layout view-producao">
-    <aside class="fluxo-sidebar">
+  <main id="main">
+    <aside>
       <div class="titulo margem efeito">
         <div class="m-icone">
           <a href="#" class="icone-menu" title="Menu" @click.prevent></a>
         </div>
       </div>
-      <nav class="nav-fluxo separador">
-        <div class="separador"><a href="#" class="link-nav-fluxo ativo">Gestão de OPs</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Painel Montagem</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Painel Injetora</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Editar apontamento</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Planejamento de injeção</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Cadastro de parâmetros</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Indicadores</a></div>
+      <nav class="nav-maior separador">
+        <a href="#" class="ativo">Gestão de OPs</a>
+        <a href="#">Painel Montagem</a>
+        <a href="#">Painel Injetora</a>
+        <a href="#">Editar apontamento</a>
+        <a href="#">Planejamento de injeção</a>
+        <a href="#">Cadastro de parâmetros</a>
+        <a href="#">Indicadores</a>
       </nav>
     </aside>
-    <section class="fluxo-conteudo">
-      <div class="fluxo-breadcrumb">Painel Injetora &gt; Gestão de Ordens de Produção</div>
-      <div class="fluxo-titulo-bar">
-        <h2 class="fluxo-titulo">Gestão de Ordens de Produção</h2>
-        <div class="fluxo-titulo-acoes">
-          <div class="pesquisa fluxo-pesquisa">
-            <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
-            <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+    <section>
+      <div class="titulo">
+        <div class="margem container">
+          <div class="m-icone direita">
+            <div class="pesquisa">
+              <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
+              <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+            </div>
           </div>
+          <h2>Gestão de Ordens de Produção</h2>
         </div>
       </div>
-      <div class="tabs-op">
-        <button type="button" class="tab-op" :class="{ ativo: tabOp === 'andamento' }" @click="tabOp = 'andamento'">Em Andamento</button>
-        <button type="button" class="tab-op" :class="{ ativo: tabOp === 'concluidas' }" @click="tabOp = 'concluidas'">Concluídas</button>
-      </div>
-      <div class="fluxo-toolbar">
-        <button type="button" class="btn-cadastrar"><i class="bi bi-plus-lg"></i> Criar OP</button>
-      </div>
-      <div class="bloco margem fluxo-tabela-wrapper">
-        <div class="tabela-wrapper">
-          <table class="tabela tabela-op">
+      <div class="margem container">
+        <div class="tags m-b">
+          <button type="button" :class="{ ativo: tabOp === 'andamento' }" @click="tabOp = 'andamento'">Em Andamento</button>
+          <button type="button" :class="{ ativo: tabOp === 'concluidas' }" @click="tabOp = 'concluidas'">Concluídas</button>
+        </div>
+        <div class="submit m-b"><button type="button">Criar OP</button></div>
+        <div class="bloco margem">
+          <table class="tabela">
             <thead>
               <tr>
                 <th>OP</th>
@@ -45,7 +44,7 @@
                 <th>Data Início</th>
                 <th>Previsão Conclusão</th>
                 <th>Status</th>
-                <th class="col-acoes-op">Ações</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -55,9 +54,9 @@
                 <td>{{ op.quantidade.toLocaleString('pt-BR') }}</td>
                 <td>{{ op.dataInicio }}</td>
                 <td>{{ op.previsaoConclusao }}</td>
-                <td><span class="chip status-chip" :class="op.status === 'Concluída' ? 'status-concluida' : 'status-separacao'">{{ op.status }}</span></td>
+                <td><span class="chip" :class="op.status === 'Concluída' ? 'bg-sucesso' : 'bg-ok'">{{ op.status }}</span></td>
                 <td>
-                  <button type="button" class="acao-secundaria" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">Ações</button>
+                  <router-link :to="{ name: 'os-nova-op', params: { opId: op.id } }" class="botao"><i class="bi bi-clipboard-plus"></i> Abrir OS</router-link>
                 </td>
               </tr>
               <tr v-if="opsFiltrados.length === 0">
@@ -65,17 +64,17 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="m-t" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;">1</button>
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;">2</button>
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;">3</button>
-          <span class="fonte-fraca" style="align-self: center;">...</span>
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;">24</button>
+          <div class="paginacao m-t">
+            <a href="#" class="ativo">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <span>...</span>
+            <a href="#">24</a>
+          </div>
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -95,7 +94,3 @@ const opsFiltrados = computed(() => {
   return list
 })
 </script>
-
-<style scoped>
-.col-acoes-op { width: 90px; }
-</style>

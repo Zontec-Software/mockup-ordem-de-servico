@@ -1,19 +1,20 @@
 <template>
   <div>
-    <div class="fluxo-breadcrumb">&gt; Tarefas</div>
-    <div class="fluxo-titulo-bar">
-      <h2 class="fluxo-titulo">Projetos</h2>
-      <div class="fluxo-titulo-acoes">
-        <div class="pesquisa fluxo-pesquisa">
-          <input v-model="pesquisa" type="text" placeholder="Pesquisar Projeto" />
-          <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+    <div class="titulo">
+      <div class="margem container">
+        <div class="m-icone direita">
+          <div class="pesquisa">
+            <input v-model="pesquisa" type="text" placeholder="Pesquisar Projeto" />
+            <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+          </div>
         </div>
-        <button type="button" class="btn-cadastrar"><i class="bi bi-plus-lg"></i> Novo Projeto</button>
+        <h2>Projetos</h2>
       </div>
     </div>
-    <div class="bloco margem fluxo-tabela-wrapper">
-      <div class="tabela-wrapper">
-        <table class="tabela tabela-projetos">
+    <div class="margem container">
+      <div class="submit m-b"><button type="button">Novo Projeto</button></div>
+      <div class="bloco margem">
+        <table class="tabela">
           <thead>
             <tr>
               <th>Código</th>
@@ -29,12 +30,12 @@
             <tr
               v-for="p in projetosFiltrados"
               :key="p.id"
-              class="tr-os-gestao-clicavel"
+              class="clicavel"
               @click="abrirProjeto(p.id)"
             >
               <td>{{ p.codigo }}</td>
               <td>{{ p.nome }}</td>
-              <td><span class="chip status-chip status-analise">{{ p.status }}</span></td>
+              <td><span class="chip bg-alerta">{{ p.status }}</span></td>
               <td>{{ p.dataInicio }}</td>
               <td>{{ p.dataTermino || '-' }}</td>
               <td>{{ p.gerenteNome }}</td>
@@ -45,13 +46,11 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="m-t" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-        <div><span class="fonte-fraca">Qtd p/ página</span> <select v-model="qtdPorPagina"><option :value="15">15</option><option :value="30">30</option><option :value="50">50</option></select></div>
-        <div class="paginacao-btns">
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;" :disabled="paginaAtual <= 1" @click="paginaAtual--"><i class="bi bi-chevron-left"></i></button>
-          <span class="pag-atual" style="margin: 0 0.5rem;">{{ paginaAtual }}</span>
-          <button type="button" class="acao-secundaria" style="padding: 0.4rem 0.6rem;" :disabled="paginaAtual >= totalPaginas" @click="paginaAtual++"><i class="bi bi-chevron-right"></i></button>
+        <div class="paginacao m-b">
+          <a href="#" :class="{ ativo: paginaAtual === 1 }" @click.prevent="paginaAtual = 1">1</a>
+          <a href="#" v-if="totalPaginas > 1" :class="{ ativo: paginaAtual === 2 }" @click.prevent="paginaAtual = 2">2</a>
+          <span v-if="totalPaginas > 2">...</span>
+          <a href="#" v-if="totalPaginas > 1" @click.prevent="paginaAtual = totalPaginas">{{ totalPaginas }}</a>
         </div>
       </div>
     </div>

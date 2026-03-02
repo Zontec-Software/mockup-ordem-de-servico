@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <div class="linha">
+                <div class="coluna">
+                    <nav class="jm jm-menu nav-maior none" id="menu">
+                        <div class="separador">
+                            <a href="sgi.html">SGI</a>
+                            <a href="projetos.html">Projetos</a>
+                            <a href="monitoramento.html" class="ativo">Monitoramento</a>
+                            <a href="#">Acesso</a>
+                            <a href="#">Indicadores</a>
+                            <a href="injetora.html">Painel Injetora</a>
+                        </div>
+                    </nav>
+                    <a href="inicial.html" class="logo logo-menor">Thalamus</a>
+                    <a href="#" class="icone-avancar negrito com-texto" onclick="document.getElementById('menu').classList.toggle('none');this.classList.toggle('ativo');return false">Monitoramento</a>
+                </div>
+                <div class="coluna">
+                    <a href="#" class="avatar direita" onclick="document.getElementById('usuario').classList.toggle('none');this.classList.toggle('ativo');return false" title="Usuário"><img src="img/avatar.png"/></a>
+                    <nav class="jm jm-avatar none" id="usuario">
+                        <div class="separador margem alinha-centro negrito">
+                            Jorge Moreira de Souza
+                        </div>
+                        <div class="separador">
+                            <a href="#" onclick="document.documentElement.classList.toggle('dark');this.classList.toggle('ativo');return false"><span class="direita toggle"></span>Tema escuro</a></dd>
+                        </div>
+                        <div class="separador bg-cinza">
+                            <a href="#">Ajuda</a>
+                            <a href="nova-senha.html">Alterar senha</a>
+                            <a href="login.html">Sair</a>
+                        </div>
+                    </nav>
+                    <a href="#" class="icone-notif direita" title="Notificações" rel="2" onclick="document.getElementById('notificacoes').classList.toggle('none');this.classList.toggle('ativo');return false"></a>
+                    <nav class="jm jm-notif none" id="notificacoes">
+                        <div class="separador">
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">12min</span>Título da notificação</a>
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">2h</span>Título da notificação</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <div class="titulo">
+                    <div class="margem container">
+                        <div class="m-icone direita"><a href="#" class="icone-download" title="Baixar aplicativo"></a></div>
+                        <h2>Dispositivos monitorados</h2>     
+                    </div>
+                </div>
+                <div class="margem container">
+                    <div class="bloco margem">
+                        <table class="tabela">
+                            <tr>
+                                <th>Id</th>
+                                <th>C&oacute;digo do dispositivo</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>12</td>
+                                <td>107a5eb79e213abc</td>
+                                <td>Teclast</td>
+                                <td>Android</td>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>13</td>
+                                <td>a16312b2b71a07e4</td>
+                                <td>samsung</td>
+                                <td>SM-X115</td>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>14</td>
+                                <td>41b5f825e63e4016</td>
+                                <td>samsung</td>
+                                <td>SM-X115</td>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>15</td>
+                                <td>7739f0764a60b4f2</td>
+                                <td>samsung</td>
+                                <td>SM-T575</td>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>16</td>
+                                <td>79d61b11d983f1d9</td>
+                                <td>samsung</td>
+                                <td>SM-T225</td>
+                            </tr>
+                            <tr class="clicavel" onclick="window.location='monitoramento-detalhe.html'">
+                                <td>17</td>
+                                <td>de493a63b9bed200</td>
+                                <td>samsung</td>
+                                <td>SM-X115</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>0051aa0dd2963b01</td>
+                                <td>Multilaser</td>
+                                <td>M8_WIFI</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>4515bbfd515586d9</td>
+                                <td>samsung</td>
+                                <td>SM-G715U1</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>6da2f1c6f76035eb</td>
+                                <td>xiaomi</td>
+                                <td>Redmi Note 8</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>e579d6b7e62223ba</td>
+                                <td>samsung</td>
+                                <td>SM-X216B</td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td>b13dbf42298ccf4d</td>
+                                <td>samsung</td>
+                                <td>SM-X216B</td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td>f28f5563d0a8ee6f</td>
+                                <td>Hyundai</td>
+                                <td>10LC1</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>ba0a7d8e6e7e3bd0</td>
+                                <td>samsung</td>
+                                <td>SM-T225</td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td>67be2ad774fa375f</td>
+                                <td>samsung</td>
+                                <td>SM-A155M</td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>d0f423d009d36048</td>
+                                <td>samsung</td>
+                                <td>SM-A256E</td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td>c32515ad4c0b936c</td>
+                                <td>samsung</td>
+                                <td>SM-A057M</td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td>81d50db05dc2cc6d</td>
+                                <td>Multilaser</td>
+                                <td>M8-4G</td>
+                            </tr>
+                            <tr>
+                                <td>29</td>
+                                <td>c85144cd185e46d3</td>
+                                <td>samsung</td>
+                                <td>SM-X306B</td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>11d837234fd0be60</td>
+                                <td>samsung</td>
+                                <td>SM-G556B</td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td>12c7c668ed3eb9c1</td>
+                                <td>motorola</td>
+                                <td>moto g54 5G</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

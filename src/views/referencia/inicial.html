@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="inicial">
+        <header>
+            <div class="linha container">
+                <div class="coluna">
+                    <a href="inicial.html" class="logo">Thalamus</a>
+                </div>
+                <div class="coluna">
+                    <a href="#" class="avatar direita" onclick="document.getElementById('usuario').classList.toggle('none');this.classList.toggle('ativo');return false" title="Usuário"><img src="img/avatar.png"/></a>
+                    <nav class="jm jm-avatar none" id="usuario">
+                        <div class="separador margem alinha-centro negrito">
+                            Jorge Moreira de Souza
+                        </div>
+                        <div class="separador">
+                            <a href="#" onclick="document.documentElement.classList.toggle('dark');this.classList.toggle('ativo');return false"><span class="direita toggle"></span>Tema escuro</a></dd>
+                        </div>
+                        <div class="separador bg-cinza">
+                            <a href="#">Ajuda</a>
+                            <a href="nova-senha.html">Alterar senha</a>
+                            <a href="login.html">Sair</a>
+                        </div>
+                    </nav>
+                    <a href="#" class="icone-notif direita" title="Notificações" rel="2" onclick="document.getElementById('notificacoes').classList.toggle('none');this.classList.toggle('ativo');return false"></a>
+                    <nav class="jm jm-notif none" id="notificacoes">
+                        <div class="separador">
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">12min</span>Título da notificação</a>
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">2h</span>Título da notificação</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <div class="titulo">
+                    <div class="container margem alinha-centro">
+                        <h2>Selecione o módulo</h2>     
+                    </div>
+                </div>
+                <div class="margem container">
+                    <div class="grid-3">
+                        <a href="sgi.html" class="card bloco">
+                                <figure>
+                                    <img src="img/fabrica.webp"/>
+                                    <figcaption class="margem abs">SGI</figcaption>
+                                </figure>
+                            </a>
+                            <a href="projetos.html" class="card bloco">
+                                <figure>
+                                    <img src="img/office.webp"/>
+                                    <figcaption class="margem abs">Projetos</figcaption>
+                                </figure>
+                            </a>
+                            <a href="monitoramento.html" class="card bloco">
+                                <figure>
+                                    <img src="img/patio.webp"/>
+                                    <figcaption class="margem abs">Monitoramento</figcaption>
+                                </figure>
+                            </a>
+                            <a href="barra.html" class="card bloco">
+                                <figure>
+                                    <img src="img/silvicultura.webp"/>
+                                    <figcaption class="margem abs">Acesso</figcaption>
+                                </figure>
+                            </a>
+                            <a href="barra.html" class="card bloco">
+                                <figure>
+                                    <img src="img/logistica.webp"/>
+                                    <figcaption class="margem abs">Indicadores</figcaption>
+                                </figure>
+                            </a>
+                            <a href="injetora.html" class="card bloco">
+                                <figure>
+                                    <img src="img/logistica.webp"/>
+                                    <figcaption class="margem abs">Painel Injetora</figcaption>
+                                </figure>
+                            </a>
+                    </div>
+                    
+        </section>
+        </main>
+    </body>
+</html>

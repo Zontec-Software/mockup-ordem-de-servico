@@ -1,19 +1,22 @@
 <template>
   <div>
-    <div class="fluxo-breadcrumb">&gt; Tarefas</div>
-    <div class="fluxo-titulo-bar">
-      <h2 class="fluxo-titulo">Ordem de Serviço</h2>
-      <div class="fluxo-titulo-acoes">
-        <div class="pesquisa fluxo-pesquisa">
-          <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
-          <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+    <div class="titulo">
+      <div class="margem container">
+        <div class="m-icone direita">
+          <div class="pesquisa">
+            <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
+            <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+          </div>
         </div>
-        <router-link to="/tarefas/os/nova" class="btn-cadastrar"><i class="bi bi-plus-lg"></i> Adicionar</router-link>
+        <h2>Ordem de Serviço</h2>
       </div>
     </div>
-    <div class="bloco margem fluxo-tabela-wrapper">
-      <div class="tabela-wrapper">
-        <table class="tabela tabela-os-gestao">
+    <div class="margem container">
+      <div class="submit m-b">
+        <router-link to="/tarefas/os/nova" class="botao">Adicionar</router-link>
+      </div>
+      <div class="bloco margem">
+        <table class="tabela">
           <thead>
             <tr>
               <th>Código</th>
@@ -32,13 +35,13 @@
             <tr
               v-for="os in listaOS"
               :key="os.id"
-              class="tr-os-gestao-clicavel"
+              class="clicavel"
               @click="abrirDetalhe(os.id)"
             >
               <td>{{ os.codigo }}</td>
               <td>{{ os.criadoPor }}</td>
               <td>{{ os.observacoes || '-' }}</td>
-              <td><span class="chip status-chip" :class="getStatusClasse(os.status)">{{ os.status }}</span></td>
+              <td><span class="chip" :class="getStatusClasse(os.status)">{{ os.status }}</span></td>
               <td>{{ os.dataCriacao }}</td>
               <td>-</td>
               <td>{{ os.fimPrevisto }}</td>
@@ -75,6 +78,6 @@ const listaOS = computed(() => {
 })
 
 function abrirDetalhe(id) {
-  router.push({ name: 'os-detalhe', params: { id } })
+  router.push({ name: 'os-editar', params: { id } })
 }
 </script>

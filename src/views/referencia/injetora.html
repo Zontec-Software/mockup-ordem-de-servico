@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <div class="linha">
+                <div class="coluna">
+                    <nav class="jm jm-menu nav-maior none" id="menu">
+                        <div class="separador">
+                            <a href="sgi.html">SGI</a>
+                            <a href="projetos.html">Projetos</a>
+                            <a href="monitoramento.html">Monitoramento</a>
+                            <a href="#">Acesso</a>
+                            <a href="#">Indicadores</a>
+                            <a href="injetora.html" class="ativo">Painel Injetora</a>
+                        </div>
+                    </nav>
+                    <a href="inicial.html" class="logo logo-menor">Thalamus</a>
+                    <a href="#" class="icone-avancar negrito com-texto" onclick="document.getElementById('menu').classList.toggle('none');this.classList.toggle('ativo');return false">Painel Injetora</a>
+                </div>
+                <div class="coluna">
+                    <a href="#" class="avatar direita" onclick="document.getElementById('usuario').classList.toggle('none');this.classList.toggle('ativo');return false" title="Usuário"><img src="img/avatar.png"/></a>
+                    <nav class="jm jm-avatar none" id="usuario">
+                        <div class="separador margem alinha-centro negrito">
+                            Jorge Moreira de Souza
+                        </div>
+                        <div class="separador">
+                            <a href="#" onclick="document.documentElement.classList.toggle('dark');this.classList.toggle('ativo');return false"><span class="direita toggle"></span>Tema escuro</a></dd>
+                        </div>
+                        <div class="separador bg-cinza">
+                            <a href="#">Ajuda</a>
+                            <a href="nova-senha.html">Alterar senha</a>
+                            <a href="login.html">Sair</a>
+                        </div>
+                    </nav>
+                    <a href="#" class="icone-notif direita" title="Notificações" rel="2" onclick="document.getElementById('notificacoes').classList.toggle('none');this.classList.toggle('ativo');return false"></a>
+                    <nav class="jm jm-notif none" id="notificacoes">
+                        <div class="separador">
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">12min</span>Título da notificação</a>
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">2h</span>Título da notificação</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <div class="titulo">
+                    <div class="margem container">
+                        <div class="m-icone direita"><a href="#" class="icone-relogio">Atualizado 29/05/2024, 21:39:05</a></div>
+                        <h2>Injetora 01 - BASE MAGNETICA TERMINAL</h2>     
+                    </div>
+                </div>
+                <div class="grid-4 margem container">
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">OP</div>
+                        <div class="lead">2024/07122</div>
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Cliente</div>
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Quantidade</div>
+                        <div class="lead">2000</div>
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Entrega</div>
+                        <div class="lead">03/06/2024</div>
+                    </div>
+                    <div class="bloco margem col-3">
+                        <h3>Serviço atual: Injeção</h3>
+                        <img src="img/workingMachine.png" class="tam-100"/>
+                    </div>
+                    <div class="bloco margem bg-sucesso">
+                        <progress value="20" max="100"></progress>
+                        Peças
+                        <p class="lead">508</p>
+                        Tempo parado
+                        <p class="lead">8.69%</p>
+                        Limite
+                        <div class="lead">10%</div>
+
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Borra</div>
+                        <div class="lead">0.65KG</div>
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Refugo</div>
+                        <div class="lead">3.60KG</div>
+                    </div>
+                    <div class="bloco margem">
+                        <div class="fonte-fraca">Horas máquina</div>
+                        <div class="lead">73h 29m</div>
+                    </div>
+                    <div class="bloco margem bg-erro">
+                        <div>Horas paradas</div>
+                        <div class="lead">6h 24m</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

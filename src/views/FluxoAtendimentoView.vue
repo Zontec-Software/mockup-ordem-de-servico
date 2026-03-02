@@ -1,41 +1,42 @@
 <template>
-  <div class="fluxo-layout view-fluxo-atendimento">
-    <aside class="fluxo-sidebar">
+  <main id="main">
+    <aside>
       <div class="titulo margem efeito">
         <div class="m-icone">
           <a href="#" class="icone-menu" title="Menu" @click.prevent></a>
         </div>
       </div>
-      <nav class="nav-fluxo separador">
-        <div class="separador"><a href="#" class="link-nav-fluxo">Fluxo Antigo</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Clientes</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Oportunidades</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Propostas</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Produção</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Expedição</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Almoxarifado</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo ativo">Pós-venda</a></div>
-        <div class="separador"><a href="#" class="link-nav-fluxo">Indicadores</a></div>
+      <nav class="nav-maior separador">
+        <a href="#">Fluxo Antigo</a>
+        <a href="#">Clientes</a>
+        <a href="#">Oportunidades</a>
+        <a href="#">Propostas</a>
+        <a href="#">Produção</a>
+        <a href="#">Expedição</a>
+        <a href="#">Almoxarifado</a>
+        <a href="#" class="ativo">Pós-venda</a>
+        <a href="#">Indicadores</a>
       </nav>
     </aside>
-    <section class="fluxo-conteudo">
-      <div class="fluxo-breadcrumb">&gt; Pós-venda</div>
-      <div class="fluxo-titulo-bar">
-        <h2 class="fluxo-titulo">Pós-Venda</h2>
-        <div class="fluxo-titulo-acoes">
-          <div class="pesquisa fluxo-pesquisa">
-            <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
-            <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+    <section>
+      <div class="titulo">
+        <div class="margem container">
+          <div class="m-icone direita">
+            <div class="pesquisa">
+              <input v-model="pesquisa" type="text" placeholder="Pesquisar" />
+              <a href="#" class="icone-pesquisa" title="Pesquisar" @click.prevent></a>
+            </div>
           </div>
+          <h2>Pós-Venda</h2>
         </div>
       </div>
-      <div class="fluxo-toolbar">
-        <button type="button" class="btn-cadastrar"><i class="bi bi-plus-lg"></i> Cadastrar</button>
-        <button type="button" class="btn-icone-secundario" title="Relatório"><i class="bi bi-file-earmark-text"></i></button>
-      </div>
-      <div class="bloco margem fluxo-tabela-wrapper">
-        <div class="tabela-wrapper">
-          <table class="tabela tabela-pos-venda">
+      <div class="margem container">
+        <div class="submit m-b">
+          <button type="button">Cadastrar</button>
+          <button type="button" class="acao-secundaria" title="Relatório"><i class="bi bi-file-earmark-text"></i></button>
+        </div>
+        <div class="bloco margem">
+          <table class="tabela">
             <thead>
               <tr>
                 <th>Código</th>
@@ -45,7 +46,8 @@
                 <th>Origem</th>
                 <th>Motivo</th>
                 <th>Data Conclusão</th>
-                <th class="col-excluir">Excluir</th>
+                <th>Ações</th>
+                <th>Excluir</th>
               </tr>
             </thead>
             <tbody>
@@ -57,17 +59,20 @@
                 <td>{{ pv.origem }}</td>
                 <td>{{ pv.motivo }}</td>
                 <td>{{ pv.dataConclusao || '-' }}</td>
-                <td><button type="button" class="btn-excluir-linha" title="Excluir"><i class="bi bi-trash"></i></button></td>
+                <td>
+                  <router-link :to="{ name: 'os-nova-posvenda', params: { posVendaId: pv.id } }" class="botao"><i class="bi bi-clipboard-plus"></i> Abrir OS</router-link>
+                </td>
+                <td><button type="button" class="acao-secundaria" title="Excluir"><i class="bi bi-trash"></i></button></td>
               </tr>
               <tr v-if="posVendaFiltrados.length === 0">
-                <td colspan="8" class="alinha-centro fonte-fraca">Nenhum registro.</td>
+                <td colspan="9" class="alinha-centro fonte-fraca">Nenhum registro.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -85,9 +90,3 @@ const posVendaFiltrados = computed(() => {
   )
 })
 </script>
-
-<style scoped>
-.col-excluir { width: 60px; text-align: center; }
-.btn-excluir-linha { padding: 6px; border: none; background: none; color: var(--cor-fonte-fraca); cursor: pointer; border-radius: 4px; }
-.btn-excluir-linha:hover { color: var(--cor-erro); }
-</style>

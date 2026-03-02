@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <div class="linha">
+                <div class="coluna">
+                    <nav class="jm jm-menu nav-maior none" id="menu">
+                        <div class="separador">
+                            <a href="sgi.html" class="ativo">SGI</a>
+                            <a href="projetos.html">Projetos</a>
+                            <a href="monitoramento.html">Monitoramento</a>
+                            <a href="#">Acesso</a>
+                            <a href="#">Indicadores</a>
+                            <a href="injetora.html">Painel Injetora</a>
+                        </div>
+                    </nav>
+                    <a href="inicial.html" class="logo logo-menor">Thalamus</a>
+                    <a href="#" class="icone-avancar negrito com-texto" onclick="document.getElementById('menu').classList.toggle('none');this.classList.toggle('ativo');return false">SGI</a>
+                </div>
+                <div class="coluna">
+                    <a href="#" class="avatar direita" onclick="document.getElementById('usuario').classList.toggle('none');this.classList.toggle('ativo');return false" title="Usuário"><img src="img/avatar.png"/></a>
+                    <nav class="jm jm-avatar none" id="usuario">
+                        <div class="separador margem alinha-centro negrito">
+                            Jorge Moreira de Souza
+                        </div>
+                        <div class="separador">
+                            <a href="#" onclick="document.documentElement.classList.toggle('dark');this.classList.toggle('ativo');return false"><span class="direita toggle"></span>Tema escuro</a></dd>
+                        </div>
+                        <div class="separador bg-cinza">
+                            <a href="#">Ajuda</a>
+                            <a href="nova-senha.html">Alterar senha</a>
+                            <a href="login.html">Sair</a>
+                        </div>
+                    </nav>
+                    <a href="#" class="icone-notif direita" title="Notificações" rel="2" onclick="document.getElementById('notificacoes').classList.toggle('none');this.classList.toggle('ativo');return false"></a>
+                    <nav class="jm jm-notif none" id="notificacoes">
+                        <div class="separador">
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">12min</span>Título da notificação</a>
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">2h</span>Título da notificação</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <aside>
+                <div class="titulo margem efeito">
+                    <div class="m-icone"><a href="#" class="icone-menu" title="Menu" onclick="document.getElementById('main').classList.toggle('esconde');return false"></a></div>
+                    <nav class="jm jm-inc none" id="menuIncluir">
+                        <div class="separador">
+                            <a href="#">Incluir projeto</a>
+                            <a href="monitoramento.html">Incluir projeto</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="separador margem">
+                    <div class="m-icone">
+                        <a href="javascript:abaMenu('Compras')" class="icone-compras ativo" title="Compras" id="Compras"></a>
+                        <a href="javascript:abaMenu('Apontamento')" class="icone-alvo" title="Apontamento" id="Apontamento"></a>
+                        <a href="javascript:abaMenu('Gestao')" class="icone-gestao" title="Gestão" id="Gestao"></a>
+                    </div>
+                </div>
+                <nav class="nav-maior separador none">
+                    <a href="#" class="icone-compras ativo">Compras</a>
+                    <a href="#" class="icone-alvo">Apontamento</a>
+                    <a href="#" class="icone-gestao">Gestão</a>
+                </nav>
+                <nav id="menuCompras" class="nav-maior separador">
+                    <a href="sgi.html">Requisições</a>
+                    <a href="cotacao.html" class="ativo"><span class="chip direita bg-cinza contador">2</span>Cotação</a>
+                    <a href="#"><span class="chip direita bg-cinza contador">14</span>Aprovação</a>
+                    <a href="#"><span class="chip direita bg-cinza contador">3</span>Compra de material</a>
+                    <a href="#">Serviços</a>
+                    <a href="#">Pagamento</a>
+                    <a href="#">Recebimento</a>
+                </nav>
+                <nav id="menuApontamento" class="nav-maior separador none">
+                    <a href="#">Apontamento</a>
+                    <a href="#">Roteiro</a>
+                </nav>
+                <nav id="menuGestao" class="nav-maior separador none">
+                    <a href="#">Relatórios</a>
+                    <a href="#">Fornecedor</a>
+                    <a href="#">Material</a>
+                    <a href="#">Serviço</a>
+                    <a href="#">Setor</a>
+                    <a href="#">Colaborador</a>
+                    <a href="#">Usuários</a>
+                    <a href="#">Gerenciar Permissões</a>
+                </nav>
+            </aside>
+            <section>
+                <div class="titulo">
+                    <div class="margem container">
+                        <div class="m-icone direita">
+                            <div class="pesquisa">
+                                <input type="text" placeholder="Pesquise aqui"/>
+                                <a href="#" class="icone-pesquisa" title="Pesquise"></a>
+                            </div>
+                        </div>
+                        <h2>Cotação</h2>     
+                    </div>
+                </div>
+                <div class="margem container">
+                    <div class="bloco margem">
+                        <div class="tags m-b">
+                            <a href="#" class="ativo">Pendentes</a>
+                            <a href="#" class="ativo">Editáveis</a>
+                            <a href="#">Concluídas</a>
+                        </div>
+                        <div class="grid-4">
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Raul Dias<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Matéria prima<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Raul Dias<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Matéria prima<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Raul Dias<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                            <a href="#" class="bloco margem"><span class="chip bg-alerta direita">Material</span><h3>REQ-0015</h3>Solicitante: Matéria prima<div class="fonte-menor fonte-fraca">29/05/2024</div></a>
+                        </div>
+                        <div class="paginacao">
+                            <a href="#" class="ativo">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <span>...</span>
+                            <a href="#">16</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            function abaMenu(a) {
+                document.getElementById('Compras').classList.remove('ativo');
+                document.getElementById('Apontamento').classList.remove('ativo');
+                document.getElementById('Gestao').classList.remove('ativo');
+                document.getElementById('menuCompras').classList.add('none');
+                document.getElementById('menuApontamento').classList.add('none');
+                document.getElementById('menuGestao').classList.add('none');
+                document.getElementById(a).classList.add('ativo');
+                document.getElementById('menu' + a).classList.remove('none');
+            }
+        </script>
+    </body>
+</html>

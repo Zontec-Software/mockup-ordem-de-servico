@@ -1,16 +1,15 @@
 <template>
-  <div class="view-form-demanda">
-    <div class="titulo tela-demanda-header">
-      <div class="margem container alinha-v" style="gap: 1rem;">
-        <button type="button" class="btn-voltar acao-secundaria" title="Voltar" @click="voltar">
-          <i class="bi bi-chevron-left"></i>
-        </button>
+  <div>
+    <div class="titulo">
+      <div class="margem container alinha-v">
+        <a href="#" class="botao" @click.prevent="voltar">Voltar</a>
         <h2>{{ id ? 'Editar Demanda' : 'Nova Demanda' }}</h2>
       </div>
     </div>
-    <div class="container margem bloco tela-demanda-card">
-      <h3 class="subtitulo-secao m-b">Detalhes da Demanda</h3>
-      <div class="grid-2 detalhes-demanda">
+    <div class="margem container">
+      <div class="bloco margem">
+      <h3 class="m-b">Detalhes da Demanda</h3>
+      <fieldset class="grid-4 bloco2 margem">
         <div>
           <label for="demandante">Demandante</label>
           <input id="demandante" v-model="form.demandante" type="text" placeholder="Nome do demandante" />
@@ -27,11 +26,10 @@
           <label for="demandaLider">Líder Responsável</label>
           <input id="demandaLider" v-model="form.lider" type="text" placeholder="Nome do líder" />
         </div>
-      </div>
+      </fieldset>
 
-      <h3 class="titulo-itens-demanda m-b">Itens da Demanda</h3>
-      <div class="tabela-wrapper">
-        <table class="tabela tabela-itens-demanda">
+      <h3 class="m-b">Itens da Demanda</h3>
+      <table class="tabela">
           <thead>
             <tr>
               <th>Código</th>
@@ -56,16 +54,8 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="alinha-centro margem-topo">
-        <button type="button" class="btn-adicionar-item-secundario" @click="adicionarItem">
-          <i class="bi bi-plus-lg"></i> Adicionar Item
-        </button>
-      </div>
-
-      <div class="submit direita margem-topo acoes-demanda">
-        <button type="button" class="acao-secundaria" @click="salvarRascunho">Salvar como rascunho</button>
-        <button type="button" class="btn-enviar" @click="enviar">Enviar</button>
+      <div class="submit m-b"><button type="button" class="acao-secundaria" @click="adicionarItem"><i class="bi bi-plus-lg"></i> Adicionar Item</button></div>
+      <div class="submit m-b"><button type="button" class="acao-secundaria" @click="salvarRascunho">Salvar como rascunho</button><button type="button" @click="enviar">Enviar</button></div>
       </div>
     </div>
   </div>

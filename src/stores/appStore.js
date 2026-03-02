@@ -104,6 +104,14 @@ export const useAppStore = defineStore('app', () => {
     return chamados.value.find(c => c.id === parseInt(id, 10))
   }
 
+  function getPosVendaById(id) {
+    return posVenda.value.find(p => p.id === parseInt(id, 10))
+  }
+
+  function getOPById(id) {
+    return ops.value.find(o => o.id === parseInt(id, 10))
+  }
+
   function addComentario(chamadoId, payload) {
     const c = chamados.value.find(ch => ch.id === parseInt(chamadoId, 10))
     if (!c) return
@@ -141,6 +149,8 @@ export const useAppStore = defineStore('app', () => {
     getDemandaById,
     getProjetoById,
     getChamadoById,
+    getPosVendaById,
+    getOPById,
     addComentario,
     addChamado(chamado) {
       const id = proximoChamado.value

@@ -1,29 +1,19 @@
 <template>
-  <div class="view-deliberacao">
+  <div>
     <div class="titulo">
       <div class="margem container">
         <h2>Deliberação de Demandas</h2>
-        <div class="tabs-deliberacao m-t">
-          <button
-            v-for="tab in tabs"
-            :key="tab.id"
-            type="button"
-            class="tab-deliberacao"
-            :class="{ ativo: abaAtiva === tab.id }"
-            @click="abaAtiva = tab.id"
-          >
-            {{ tab.label }}
-          </button>
+        <div class="tags m-t">
+          <button v-for="tab in tabs" :key="tab.id" type="button" :class="{ ativo: abaAtiva === tab.id }" @click="abaAtiva = tab.id">{{ tab.label }}</button>
         </div>
       </div>
     </div>
-    <div class="container margem">
+    <div class="margem container">
       <div class="bloco margem">
-        <div class="tabela-wrapper">
-          <table class="tabela tabela-deliberacao">
+        <table class="tabela">
             <thead>
               <tr>
-                <th class="col-checkbox"></th>
+                <th></th>
                 <th>Demanda</th>
                 <th>Origem</th>
                 <th>Material</th>
@@ -61,12 +51,11 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="acoes-deliberacao m-t" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button type="button" class="btn-deliberacao btn-revisao" @click="acao('revisao')">Mandar para Revisão</button>
-          <button type="button" class="btn-deliberacao btn-reprovar" @click="acao('reprovar')">Reprovar</button>
-          <button type="button" class="btn-deliberacao btn-almoxarifado" @click="acao('almoxarifado')">Enviar para o Almoxarifado</button>
-          <button type="button" class="btn-deliberacao btn-compra" @click="acao('compra')">Enviar para compra</button>
+        <div class="submit m-t">
+          <button type="button" class="acao-secundaria" @click="acao('revisao')">Mandar para Revisão</button>
+          <button type="button" class="acao-secundaria" @click="acao('reprovar')">Reprovar</button>
+          <button type="button" class="acao-secundaria" @click="acao('almoxarifado')">Enviar para o Almoxarifado</button>
+          <button type="button" @click="acao('compra')">Enviar para compra</button>
         </div>
       </div>
     </div>

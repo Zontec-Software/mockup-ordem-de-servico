@@ -42,6 +42,13 @@ const routes = [
     meta: { showHeaderVoltar: true }
   },
   {
+    path: '/chamados/:id',
+    name: 'chamado-detalhe',
+    component: () => import(/* webpackChunkName: "chamados" */ '../views/DetalheChamadoView.vue'),
+    props: true,
+    meta: { showHeaderVoltar: true }
+  },
+  {
     path: '/tarefas',
     component: () => import(/* webpackChunkName: "tarefas-layout" */ '../views/TarefasLayout.vue'),
     meta: { showHeaderVoltar: true },
@@ -58,8 +65,32 @@ const routes = [
         component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue')
       },
       {
-        path: 'os/:id',
-        name: 'os-detalhe',
+        path: 'os/nova/chamado/:chamadoId',
+        name: 'os-nova-chamado',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue'),
+        props: true
+      },
+      {
+        path: 'os/nova/projeto/:projetoId',
+        name: 'os-nova-projeto',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue'),
+        props: true
+      },
+      {
+        path: 'os/nova/posvenda/:posVendaId',
+        name: 'os-nova-posvenda',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue'),
+        props: true
+      },
+      {
+        path: 'os/nova/op/:opId',
+        name: 'os-nova-op',
+        component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/FormOSView.vue'),
+        props: true
+      },
+      {
+        path: 'os/editar/:id',
+        name: 'os-editar',
         component: () => import(/* webpackChunkName: "tarefas" */ '../views/tarefas/DetalheOSView.vue'),
         props: true
       },

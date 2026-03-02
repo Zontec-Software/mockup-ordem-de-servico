@@ -1,54 +1,32 @@
 <template>
-  <div class="fluxo-layout layout-demandas">
-    <aside class="fluxo-sidebar">
+  <main id="main">
+    <aside>
       <div class="titulo margem efeito">
         <div class="m-icone">
-          <a href="#" class="icone-menu" title="Menu" @click.prevent></a>
+          <a href="#" class="icone-menu" title="Menu" @click.prevent="toggleEsconde"></a>
         </div>
+        <nav class="jm jm-inc none" id="menuIncluir">
+          <div class="separador">
+            <a href="#">Incluir projeto</a>
+          </div>
+        </nav>
       </div>
       <nav class="nav-maior separador">
-        <div class="separador">
-          <router-link to="/demandas/minhas" class="link-nav" active-class="ativo">Minhas Demandas</router-link>
-        </div>
-        <div class="separador">
-          <router-link to="/demandas/deliberacao" class="link-nav" active-class="ativo">Deliberação</router-link>
-        </div>
-        <div class="separador">
-          <a href="#" class="link-nav">Demandas Reprovadas</a>
-        </div>
-        <div class="separador">
-          <a href="#" class="link-nav">Motivação x Origem</a>
-        </div>
-        <div class="separador">
-          <a href="#" class="link-nav">Pedidos de Cadastro</a>
-        </div>
+        <router-link to="/demandas/minhas" active-class="ativo">Minhas Demandas</router-link>
+        <router-link to="/demandas/deliberacao" active-class="ativo">Deliberação</router-link>
+        <a href="#">Demandas Reprovadas</a>
+        <a href="#">Motivação x Origem</a>
+        <a href="#">Pedidos de Cadastro</a>
       </nav>
     </aside>
-    <section class="fluxo-conteudo">
+    <section>
       <router-view />
     </section>
-  </div>
+  </main>
 </template>
 
 <script setup>
+function toggleEsconde() {
+  document.getElementById('main').classList.toggle('esconde')
+}
 </script>
-
-<style scoped>
-.layout-demandas .fluxo-conteudo {
-  flex: 1;
-  padding: 1rem;
-}
-.link-nav {
-  display: flex !important;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 10px 16px !important;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s;
-}
-.link-nav.ativo {
-  font-weight: 600;
-  color: var(--cor-primaria);
-}
-</style>

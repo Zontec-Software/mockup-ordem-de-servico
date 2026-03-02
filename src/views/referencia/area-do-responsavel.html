@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <div class="linha">
+                <div class="coluna">
+                    <nav class="jm jm-menu nav-maior none" id="menu">
+                        <div class="separador">
+                            <a href="sgi.html">SGI</a>
+                            <a href="projetos.html" class="ativo">Projetos</a>
+                            <a href="monitoramento.html">Monitoramento</a>
+                            <a href="#">Acesso</a>
+                            <a href="#">Indicadores</a>
+                            <a href="injetora.html">Painel Injetora</a>
+                        </div>
+                    </nav>
+                    <a href="inicial.html" class="logo logo-menor">Thalamus</a>
+                    <a href="#" class="icone-avancar negrito com-texto" onclick="document.getElementById('menu').classList.toggle('none');this.classList.toggle('ativo');return false">Projetos</a>
+                </div>
+                <div class="coluna">
+                    <a href="#" class="avatar direita" onclick="document.getElementById('usuario').classList.toggle('none');this.classList.toggle('ativo');return false" title="Usuário"><img src="img/avatar.png"/></a>
+                    <nav class="jm jm-avatar none" id="usuario">
+                        <div class="separador margem alinha-centro negrito">
+                            Jorge Moreira de Souza
+                        </div>
+                        <div class="separador">
+                            <a href="#" onclick="document.documentElement.classList.toggle('dark');this.classList.toggle('ativo');return false"><span class="direita toggle"></span>Tema escuro</a></dd>
+                        </div>
+                        <div class="separador bg-cinza">
+                            <a href="#">Ajuda</a>
+                            <a href="nova-senha.html">Alterar senha</a>
+                            <a href="login.html">Sair</a>
+                        </div>
+                    </nav>
+                    <a href="#" class="icone-notif direita" title="Notificações" rel="2" onclick="document.getElementById('notificacoes').classList.toggle('none');this.classList.toggle('ativo');return false"></a>
+                    <nav class="jm jm-notif none" id="notificacoes">
+                        <div class="separador">
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">12min</span>Título da notificação</a>
+                            <a href="#"><span class="fonte-fraca fonte-menor direita">2h</span>Título da notificação</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <aside>
+                <div class="titulo margem efeito">
+                    <div class="m-icone"><a href="#" class="icone-menu" title="Menu" onclick="document.getElementById('main').classList.toggle('esconde');return false"></a></div>
+                </div>
+                <nav class="nav-maior separador">
+                    <a href="#" class="icone-inc">Adicionar</a>
+                </nav>
+                <nav class="nav-maior separador">
+                    <a href="area-do-responsavel.html" class="ativo">Área do responsável</a>
+                    <a href="area-do-solicitante.html">Área do solicitante</a>
+                </nav>
+            </aside>
+            <section>
+                <div class="titulo">
+                    <div class="margem container">
+                        <h2>Área do responsável</h2>     
+                    </div>
+                </div>
+                <div class="margem container">
+                    <div class="bloco margem">
+                        <table class="tabela">
+                            <tbody>
+                                <tr>
+                                    <th>Análise de impactos e viabilidade da proposta</th><th>Concordo</th><th class="tam-g">Justificativa</th>
+                                </tr>
+                                <tr>
+                                    <td>Afetará a documentação de projetos já existentes? (B.O.M., Roteiro de Produção, Esquema elétrico, Estrutura, Etc.)</td>
+                                    <td><a class="link-toggle" href="#" onclick="this.classList.toggle('ativo');return false"><span class="toggle"></span></a></td>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>O produto a ser alterado/criado possui ou deve possuir certificação? Se positivo comunicar mudança à certificadora e aguardar a autorização da mesma.</td>
+                                    <td><a class="link-toggle" href="#" onclick="this.classList.toggle('ativo');return false"><span class="toggle"></span></a></td>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Estimativa de Custo da mudança (R$).</td>
+                                    <td><input type="text"/></td>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>    
+                    <div class="bloco margem">Confirmo que o cenário geral do mercado é viável à proposta, pois apresenta condições favoráveis que podem sustentar o sucesso da iniciativa. Além disso, a empresa possui capacidade interna necessária para implementá-la, contando com recursos humanos qualificados e infraestrutura adequada. Com isso, demonstra-se que a implementação da proposta será rentável à empresa, gerando retornos positivos.</div>                
+                    <fieldset class="grid-4 bloco2 margem m-b">
+                        <div><label>Limite de implementação</label><input type="date"/></div>
+                        <div><label>Parecer do responsável</label><select><option>Opção 1</option><option>Opção 2</option></select></div>
+                        <div><label>Nome</label><select><option>Opção 1</option><option>Opção 2</option></select></div>
+                        <div class="col-2"><label>Justificativa</label><textarea></textarea></div>
+                        <div class="col-2"><label>Resultado esperado</label><textarea></textarea></div>
+                        <div><label>Código</label><input type="text" value="PCM24A278"/></div>
+                        <div><label>Necessidade de cadastro no Omie?</label><a class="link-toggle" href="#" onclick="this.classList.toggle('ativo');return false"><span class="toggle"></span></a></div>
+                        <div><label>Responsável pelo cadastro</label><input type="text"/></div>
+                        <div><label>Data</label><input type="date"/></div>
+                    </fieldset>
+                    <div class="submit"><button>Salvar</button><button class="acao-secundaria">Cancelar</button></div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

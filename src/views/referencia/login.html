@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Thalamus</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Thalamus"/>
+        <link href="css/thalamus.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <main class="login">
+            <section class="tam-2 cover"></section>
+            <section class="alinha-v rel">
+                <div class="margem">
+                    <p class="logo">Thalamus</p>
+                    <fieldset>
+                    <div class="linha">
+                        <label class="icone-conta pos-input"></label>
+                        <input type="text" placeholder="E-mail ou CPF"/>
+                    </div>
+                    <div class="linha">
+                        <label class="icone-senha pos-input"></label>
+                        <input type="password" placeholder="Senha"/>
+                        <a href="" class="icone-olho" onclick="var inp=this.previousElementSibling;inp.type==='password'?inp.type='text':inp.type='password';return false"></a>
+                    </div>
+                    </fieldset>
+                    <div class="submit">
+                        <button onclick="document.getElementById('empresa').classList.toggle('ativo')"><span class="icone-avancar direita"></span>Entrar</button>
+                        <a href="recuperar-senha.html" class="botao">Esqueci minha senha</a>
+                    </div>
+                </div>
+                <div class="alinha-v abs" id="empresa">
+                    <div class="margem">
+                        <h2>Selecione a área</h2>
+                        <div class="sel-area">
+                            <a class="item" href="inicial.html"><span class="icone-avancar direita"></span>Roboflex</a>
+                            <a class="item" href="inicial.html"><span class="icone-avancar direita"></span>Zontec</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
